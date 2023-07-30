@@ -1,8 +1,14 @@
 package com.WebsiteCoffe.Project_cafe.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -21,4 +27,10 @@ public class Roles {
                     generator = "roles_sequence")
     private long id;
     private String name;
+    @ManyToMany(mappedBy = "roles")
+    @Fetch(value= FetchMode.SELECT)
+    @JsonIgnore
+    private Set<Employees> employees = new HashSet<>();
+
+
 }
