@@ -33,8 +33,10 @@ public class Roles {
     @JsonIgnore
     private Set<Employees> employees = new HashSet<>();
 
+
     public Roles(Long id, String name) {
         this.id = id;
         this.name = name;
     }
+
 }

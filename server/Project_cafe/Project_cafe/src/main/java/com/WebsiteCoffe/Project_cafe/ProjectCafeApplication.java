@@ -1,6 +1,8 @@
 package com.WebsiteCoffe.Project_cafe;
 
+
 import com.WebsiteCoffe.Project_cafe.Entity.Employees;
+
 import com.WebsiteCoffe.Project_cafe.Entity.Roles;
 import com.WebsiteCoffe.Project_cafe.Service.EmployeeService;
 import org.springframework.boot.CommandLineRunner;
@@ -11,7 +13,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+
 import java.util.HashSet;
+
 
 @SpringBootApplication
 @EnableWebSecurity
@@ -30,6 +34,7 @@ public class ProjectCafeApplication {
 	@Bean
 	CommandLineRunner run(EmployeeService employeeService){
 		return args -> {
+
 			employeeService.saveRoles(new Roles(null,"Admin"));
 			employeeService.saveRoles(new Roles(null,"Employee"));
 			employeeService.saveRoles(new Roles(null,"Customer"));
@@ -41,5 +46,8 @@ public class ProjectCafeApplication {
 
 
 		};
+
+
+
 	}
 }
